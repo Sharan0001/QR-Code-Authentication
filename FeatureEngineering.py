@@ -83,17 +83,6 @@ selected_features = feature_ranks[:10]
 feature_names = ["LBP_" + str(i) for i in range(10)] + ["GLCM_Contrast", "GLCM_Correlation", "GLCM_Energy", "GLCM_Homogeneity", "Blurriness", "Edge_Density", "Entropy", "Fourier_Variance"]
 selected_feature_names = [feature_names[i] for i in selected_features]
 
-# Train SVM on selected features
-svm_model = SVC(kernel='rbf', C=1000, gamma='scale')
-svm_model.fit(X_train[:, selected_features], y_train)
-y_pred = svm_model.predict(X_test[:, selected_features])
-
-# Evaluate model
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Model Accuracy: {accuracy:.2f}")
-print("Classification Report:\n", classification_report(y_test, y_pred))
-print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-
 # Visualize Feature Importance
 feature_importance_df = pd.DataFrame({"Feature": feature_names, "Importance": importances})
 feature_importance_df = feature_importance_df.sort_values(by="Importance", ascending=False)
