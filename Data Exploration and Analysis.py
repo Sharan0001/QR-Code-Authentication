@@ -28,8 +28,6 @@ y = np.array(first_print_labels + second_print_labels)
 # Normalize pixel values to [0,1]
 X = X / 255.0
 
-import matplotlib.pyplot as plt
-import cv2
 import random
 
 # Select random samples from both classes
@@ -50,7 +48,6 @@ for i in range(5):
 
 plt.show()
 
-import numpy as np
 
 def plot_histogram(image, title):
     plt.hist(image.ravel(), bins=256, range=[0, 256], alpha=0.7, color='blue')
@@ -80,10 +77,6 @@ ax[1].imshow(second_edges, cmap='gray')
 ax[1].set_title("Edges - Second Print")
 plt.show()
 
-import os
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
 from skimage.filters import sobel
 
 # Define dataset paths
